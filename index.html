@@ -1,0 +1,38 @@
+<html>
+<head>
+<script>
+var require = {
+	urlArgs : "v="+new Date().getTime()
+};
+</script>
+<script data-main="main" src="vendors/require.js" type="text/javascript"></script>
+</head>
+<body>
+<style>
+body {
+		background: #333;
+}
+
+canvas {
+	width: 400px;
+	height: 400px;
+	border: 1px solid #000;
+	margin: 60px auto 0;
+	display: block;
+	box-shadow: 0 0 50px #000;
+	background: #222;
+}
+
+.controls {
+	width: 100px;
+	margin: 50px auto 0;
+	display: block;
+}
+</style>
+
+<canvas id="canvas" width="680" height="600"></canvas>
+<div class="controls">
+	<a href="#" id="start"> start </a> | <a href="#" id="stop">stop</a>
+</div>
+</body>
+</html>
