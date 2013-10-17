@@ -47,11 +47,21 @@ define(['../lib/circle', '../lib/aura', './collision', '../lib/vector', '../lib/
 	 * React to collision depending on the type of object
 	 */
 	Particle.prototype.reactToCollision = function(other) {
-		this.setPosition(this.prevPosition);
+		
 		//TODO: fix this
 		//http://en.wikipedia.org/wiki/Elastic_collision
+		//http://www.gamasutra.com/view/feature/131424/pool_hall_lessons_fast_accurate_.php?page=3
+		var n = this.position.sub(other.prevPosition).normalize();
+
+		var a1 = this.direction.dot(n);
+		var a2 = other.prevDirection.dot(n);
+
+		var optimizedP = (2 * (a1 - a2)) / (this.mass + other.mass);
+		var newDir = this.direction.sub(n.mult(optimizedP * other.mass));
 		
-		this.setDirection(this.direction.mult(-1));
+		this.setPosition(this.prevPosition);
+		this.setDirection(newDir);
+		
 	};
 
 	/**

@@ -58,8 +58,8 @@ define(["../lib/canvas","./particle", "../lib/vector", "./collision"], function(
 			// check other particles
 			for(var j= i + 1; j < this.particles.length; j++) {
 				if(collision.collide(c, this.particles[j])){
-					this.particles[j].reactToCollision(c);
 					c.reactToCollision(this.particles[j]);
+					this.particles[j].reactToCollision(c);
 				}
 			}
 
