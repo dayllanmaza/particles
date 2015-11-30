@@ -14,7 +14,7 @@ define(["./world"], function(World) {
 		
 		var self = this;
 
-		this.world = new World();
+		this.world = new World(this.width, this.height);
 
 		if(!this.running) {
 			this.running = setInterval(function(){

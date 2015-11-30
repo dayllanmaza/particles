@@ -1,9 +1,10 @@
 define(["../lib/canvas","./particle", "../lib/vector", "./collision"], function(canvas, Particle, Vector, collision) {
 
-	function World() {
+	function World(width, height) {
 		var self = this;
-		this.width = canvas.width;
-		this.height = canvas.height;
+		this.width = width;
+		this.height = height;
+
 		this.ctx = canvas.ctx;
 		this.particles = [
 			new Particle(self, {position: new Vector(300, 20), color: 'blue'}),
@@ -21,7 +22,25 @@ define(["../lib/canvas","./particle", "../lib/vector", "./collision"], function(
 			new Particle(self, {position: new Vector(120, this.height/2), color: 'black'}),
 			new Particle(self, {position: new Vector(340, 20), color: 'green'}),
 			new Particle(self, {position: new Vector(420, 420), color: 'red'}),
-			new Particle(self, {position: new Vector(540 , 500)})
+			new Particle(self, {position: new Vector(540 , 500)}),
+
+			new Particle(self, {position: new Vector(2 * 40, 2 * 15), color: 'blue'}),
+			new Particle(self, {position: new Vector(2 * 60, 2 * 300), color: 'red'}),
+			new Particle(self, {position: new Vector(2 * 100, 2 * 70), color: 'black'}),
+			new Particle(self, {position: new Vector(2 * 120, 2 * this.height/2), color: 'black'}),
+			new Particle(self, {position: new Vector(2 * 340, 2 * 20), color: 'green'}),
+			new Particle(self, {position: new Vector(2 * 420, 2 * 420), color: 'red'}),
+			new Particle(self, {position: new Vector(2 * 540 ,2 *  500)}),
+
+			new Particle(self, {position: new Vector(2 * 300, 2 * 20), color: 'blue'}),
+			new Particle(self, {position: new Vector(2 * 320, 2 * 300), color: 'red'}),
+			new Particle(self, {position: new Vector(2 * 500, 2 * 90), color: 'pink'}),
+			new Particle(self, {position: new Vector(2 * 460, 2 * 110), color: 'black'}),
+			new Particle(self, {position: new Vector(2 * 440, 2 * 150), color: 'black'}),
+			new Particle(self, {position: new Vector(2 * 480, 2 * 210), color: 'green'}),
+			new Particle(self, {position: new Vector(2 * 520, 2 * 400), color: 'red'}),
+			new Particle(self, {position: new Vector(2 * 580, 2 * 250)})
+
 		];
 	}
 
@@ -36,7 +55,7 @@ define(["../lib/canvas","./particle", "../lib/vector", "./collision"], function(
 		for(var i=0; i < this.particles.length; i++) {
 			
 			var c = this.particles[i];
-			
+			console.log(this.width);
 			if (c.position.x + c.radius > this.width || c.position.x - c.radius < 0) {
 				c.setDirection(new Vector(c.direction.x * -1, c.direction.y));
 

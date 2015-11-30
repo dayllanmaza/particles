@@ -28,16 +28,19 @@ function forEach(func, array) {
 		function(Game) {
 
 			var canvas = document.getElementById('canvas');
+			canvas.height = window.innerHeight;
+			canvas.width = window.innerWidth;
+			
 			var game = new Game(canvas);
 			game.start();
 
-			document.getElementById('stop').addEventListener('click', function(){
-				game.stop();
-			});
+			// document.getElementById('stop').addEventListener('click', function(){
+			// 	game.stop();
+			// });
 
-			document.getElementById('start').addEventListener('click', function(){
-				game.start();
-			});
+			// document.getElementById('start').addEventListener('click', function(){
+			// 	game.start();
+			// });
 		}
 	);
 })();

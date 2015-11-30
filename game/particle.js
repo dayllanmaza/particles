@@ -59,8 +59,9 @@ define(['../lib/circle', '../lib/aura', './collision', '../lib/vector', '../lib/
 		var optimizedP = (2 * (a1 - a2)) / (this.mass + other.mass);
 		var newDir = this.direction.sub(n.mult(optimizedP * other.mass));
 		
-		this.setPosition(this.prevPosition);
+		// this.setPosition(this.prevPosition);
 		this.setDirection(newDir);
+		// this.move();
 		
 	};
 
